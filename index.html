@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Calculator</title>
+    <link rel="stylesheet" href="style.css"> <!-- Link to external CSS file -->
+</head>
+<body>
+<div class="container">
+    <h2>BMI Calculator</h2>
+
+    <!-- Dropdown to choose the height measurement type -->
+    <div class="selection">
+        <label for="heightType">Choose Height Measurement Type:</label>
+        <select id="heightType" name="heightType" onchange="toggleHeightInput()">
+            <option value="feet-inches">Feet and Inches</option>
+            <option value="cm">Centimeters</option>
+        </select>
+    </div>
+
+    <!-- Section for feet and inches input -->
+    <div id="feetInchesInput" class="input-group selection">
+        <label for="feet">Feet:</label>
+        <input type="number" id="feet" name="feet" min="0" placeholder="Feet">
+        
+        <label for="inches">Inches:</label>
+        <input type="number" id="inches" name="inches" min="0" max="11" placeholder="Inches">
+    </div>
+
+    <!-- Section for cm input (initially hidden) -->
+    <div id="cmInput" class="input-group selection" style="display: none;">
+        <label for="cm">Height in Centimeters:</label>
+        <input type="number" id="cm" name="cm" min="0" placeholder="Centimeters">
+    </div>
+
+    <!-- Weight input (always in kg) -->
+    <div class="input-group">
+        <label for="weight">Enter Your Weight (kg):</label>
+        <input type="number" id="weight" name="weight" min="0" placeholder="Weight in kg" required>
+    </div>
+
+    <!-- Button to calculate BMI -->
+    <button onclick="calculateBMI()">Calculate BMI</button>
+
+    <!-- Placeholder for BMI result -->
+    <div id="bmiResult">
+        <p> <span id="bmiValue"></span></p>
+        <ul>
+            <li>Underweight: Less than 18.5</li>
+            <li>Normal range: 18.5 to 24.9</li>
+            <li>Overweight: 25 to 29.9</li>
+            <li>Class I obesity: 30 to 34.9</li>
+            <li>Class II obesity: 35 to 39.9</li>
+            <li>Class III obesity: More than 40</li>
+        </ul>
+    </div>
+</div>
+<script src="script.js"></script> <!-- Link to external JS file -->
+</body>
+</html>
